@@ -1,2 +1,2 @@
 # PyGameOfLife
-Game of Life by Pygame
+Game of Life with a Pygame window
