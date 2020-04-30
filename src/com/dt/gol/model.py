@@ -30,7 +30,7 @@ class World(object):
     __x_size = None
     __y_size = None
 
-    __cells = None
+    _cells = None
 
     __cell_cnt = 0
     __generation = 0
@@ -64,24 +64,26 @@ class World(object):
 #             print(x_cells)
             cells.append(x_cells)
             
-        self.__cells = cells
+        self._cells = cells
     
-    def getNeighbourCnt(self, x, y) -> int:
+    def __getNeighbourCnt(self, x, y) -> int:
         
-        xl = x+1 if x+1 < self.__x_size else 0
-        yl = y+1 if y+1 < self.__y_size else 0 
+        print(f"(x:{x}, y:{y})")
+        xl = x+1 if x+1 < self.__y_size else 0
+        yl = y+1 if y+1 < self.__x_size else 0 
+        print(f"(xl:{xl}, yl:{yl})")
 
-#         print(f"({x-1}, {y-1}) = {self.__cells[x-1][y-1]}")
-#         print(f"({x-1}, {y}) = {self.__cells[x-1][y]}")
-#         print(f"({x-1}, {yl}) = {self.__cells[x-1][yl]}")
-#         print(f"({x}, {y-1}) = {self.__cells[x][y-1]}")
-###         print(f"({x}, {y}) = {self.__cells[x][y]}")
-#         print(f"({x}, {yl}) = {self.__cells[x][yl]}")
-#         print(f"({xl}, {y-1}) = {self.__cells[xl][y-1]}")
-#         print(f"({xl}, {y}) = {self.__cells[xl][y]}")
-#         print(f"({xl}, {yl}) = {self.__cells[xl][yl]}")
-        
-        return self.__cells[x-1][y-1] + self.__cells[x-1][y] + self.__cells[x-1][yl] + self.__cells[x][y-1] + self.__cells[x][yl] + self.__cells[xl][y-1] + self.__cells[xl][y] + self.__cells[xl][yl]
+        print(f"({x-1}, {y-1}) = {self._cells[x-1][y-1]}")
+        print(f"({x-1}, {y}) = {self._cells[x-1][y]}")
+        print(f"({x-1}, {yl}) = {self._cells[x-1][yl]}")
+        print(f"({x}, {y-1}) = {self._cells[x][y-1]}")
+        print(f"select cell: ({x}, {y}) = {self._cells[x][y]}")
+        print(f"({x}, {yl}) = {self._cells[x][yl]}")
+        print(f"({xl}, {y-1}) = {self._cells[xl][y-1]}")
+        print(f"({xl}, {y}) = {self._cells[xl][y]}")
+        print(f"({xl}, {yl}) = {self._cells[xl][yl]}")
+        print("----")
+        return self._cells[x-1][y-1] + self._cells[x-1][y] + self._cells[x-1][yl] + self._cells[x][y-1] + self._cells[x][yl] + self._cells[xl][y-1] + self._cells[xl][y] + self._cells[xl][yl]
     
     def goNextGeneration(self):
 
@@ -91,15 +93,15 @@ class World(object):
         for i in range(self.__y_size):
             x_cells = []
             for j in range(self.__x_size):
-#                 print(f"({i}, {j}) = {self.__cells[i][j]}")
-                nbcnt = self.getNeighbourCnt(i, j)
+#                 print(f"({i}, {j}) = {self._cells[i][j]}")
+                nbcnt = self.__getNeighbourCnt(i, j)
                 cell = None
 #                 print(nbcnt)
                 
                 if nbcnt == 3:
                     cell = 1
                 elif nbcnt == 2:
-                    cell = self.__cells[i][j]
+                    cell = self._cells[i][j]
                 else:
                     cell = 0
                  
@@ -111,7 +113,7 @@ class World(object):
 #             print(x_cells)
             cells.append(x_cells)
             
-        self.__cells = cells
+        self._cells = cells
         self.__cell_cnt = cell_cnt
         self.__generation += 1
 
@@ -123,8 +125,9 @@ class World(object):
 #         print(self.__x_size)
 #         print(self.__y_size)
         print(f'genration: {self.__generation}')
-        print(self.__cell_cnt)
-        print(self.__cells)
+        print(f'live cell: {self.__cell_cnt}')
+#         print(self._cells)
+        print(f'===')
         
 
         
@@ -132,7 +135,7 @@ if __name__ == '__main__':
     pass
    
 #     print(help(World))
-    w = World(20, 20, 110)
+    w = World(10, 20, 10)
     w.show()
     for i in range(310):
         w.goNextGeneration()
