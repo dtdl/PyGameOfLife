@@ -44,6 +44,7 @@ class World(object):
         self.__y_size = y
 #         self.__cell_cnt = cnt
         self.__initialCells(cnt)
+        self.__show()
         
     
     def __initialCells(self, cnt):
@@ -117,17 +118,16 @@ class World(object):
         self.__cell_cnt = cell_cnt
         self.__generation += 1
 
-        self.show()
+        self.__show()
 
 
     
-    def show(self):
+    def __show(self):
 #         print(self.__x_size)
 #         print(self.__y_size)
-        print(f'genration: {self.__generation}')
-        print(f'live cell: {self.__cell_cnt}')
+        print(f'### genration: {self.__generation}, live cells: {self.__cell_cnt} ###')
 #         print(self._cells)
-        print(f'===')
+        print(f'#############################################################')
         
 
         
@@ -136,7 +136,6 @@ if __name__ == '__main__':
    
 #     print(help(World))
     w = World(20, 10, 100)
-    w.show()
     for i in range(10):
         w.goNextGeneration()
     

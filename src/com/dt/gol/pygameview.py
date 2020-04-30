@@ -16,9 +16,12 @@ if __name__ == '__main__':
     BLACK   = (0, 0, 0)
 
     """ size of the world, scale of the view """
-    x_size = 120
-    y_size = 80
-    scale = 8
+    x_size = 180
+    y_size = 120
+    scale = 5
+    cell_rate = 0.6
+    generation = 500
+    
     SIZE = (x_size*scale, y_size*scale)
 
     """ start """
@@ -26,9 +29,9 @@ if __name__ == '__main__':
     WIN = pygame.display.set_mode(SIZE)
     pygame.display.set_caption("game of life")
     
-    w = World(x_size, y_size, x_size*y_size*0.5)
+    w = World(x_size, y_size, x_size*y_size*cell_rate)
     
-    for i in range(5000):
+    for i in range(generation):
         
         for x in range(y_size):
             for y in range(x_size):
