@@ -127,7 +127,9 @@ class World(object):
 #         print(self.__y_size)
         print(f'### genration: {self.__generation}, live cells: {self.__cell_cnt} ###')
 #         print(self._cells)
-        print(f'#############################################################')
+#         for i in range (self.__y_size):
+#             print(self._cells[i])
+#         print(f'#############################################################')
         
 
         

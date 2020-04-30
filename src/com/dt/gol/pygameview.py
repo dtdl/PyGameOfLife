@@ -16,11 +16,11 @@ if __name__ == '__main__':
     BLACK   = (0, 0, 0)
 
     """ size of the world, scale of the view """
-    x_size = 180
+    x_size = 50
     y_size = 120
     scale = 5
     cell_rate = 0.6
-    generation = 500
+    generation = 5000
     
     SIZE = (x_size*scale, y_size*scale)
 
