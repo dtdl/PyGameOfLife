@@ -16,22 +16,24 @@ if __name__ == '__main__':
     BLACK   = (0, 0, 0)
 
     """ size of the world, scale of the view """
-    size = 120
-    scale = 3
-    SIZE = (size*scale, size*scale)
+    x_size = 120
+    y_size = 80
+    scale = 8
+    SIZE = (x_size*scale, y_size*scale)
 
     """ start """
     pygame.init()
     WIN = pygame.display.set_mode(SIZE)
     pygame.display.set_caption("game of life")
     
-    w = World(size, size, size*size*0.2)
+    w = World(x_size, y_size, x_size*y_size*0.5)
     
-    for i in range(2000):
+    for i in range(5000):
         
-        for x in range(size):
-            for y in range(size):
-                pygame.draw.rect(WIN,GREEN if w._cells[x][y] else BLACK, (x*scale, y*scale, scale, scale))
+        for x in range(y_size):
+            for y in range(x_size):
+#                 print(f"(x:{x}, y:{y}): {w._cells[x][y]}")
+                pygame.draw.rect(WIN,GREEN if w._cells[x][y] else BLACK, (y*scale, x*scale, scale, scale))
 #                 pygame.display.update()
 #             pygame.display.update()
         pygame.display.update()
