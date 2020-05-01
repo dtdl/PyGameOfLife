@@ -51,9 +51,9 @@ class World(object):
         
         cells = []
         
-        for j in range(self.__y_size):
+        for j in range(self.__y_size): # @UnusedVariable
             x_cells = []
-            for i in range(self.__x_size):
+            for i in range(self.__x_size): # @UnusedVariable
 #                 cell = Cell(True if randint(0, 1) == 0 else False);
 #                 cell = True if randint(0, 2) == 0 else False
                 cell = 1 if randint(0, self.__x_size * self.__y_size - 1) < cnt else 0
