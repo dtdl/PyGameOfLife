@@ -78,7 +78,7 @@ class World(object):
 #         print(f"({x-1}, {y}) = {self._cells[x-1][y]}")
 #         print(f"({x-1}, {yl}) = {self._cells[x-1][yl]}")
 #         print(f"({x}, {y-1}) = {self._cells[x][y-1]}")
-#         print(f"select cell: ({x}, {y}) = {self._cells[x][y]}")
+#         print(f"selected cell: ({x}, {y}) = {self._cells[x][y]}")
 #         print(f"({x}, {yl}) = {self._cells[x][yl]}")
 #         print(f"({xl}, {y-1}) = {self._cells[xl][y-1]}")
 #         print(f"({xl}, {y}) = {self._cells[xl][y]}")
@@ -127,10 +127,10 @@ class World(object):
 #         print(self.__y_size)
         print(f'### genration: {self.__generation}, live cells: {self.__cell_cnt} ###')
 #         print(self._cells)
-#         for i in range (self.__y_size):
-#             print(self._cells[i])
-#         print(f'#############################################################')
-        
+        for i in range (self.__y_size):
+            print(self._cells[i])
+        print(f'#############################################################')
+         
 
         
 if __name__ == '__main__':
