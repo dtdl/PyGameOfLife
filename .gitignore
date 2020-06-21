@@ -1,0 +1,10 @@
+
+.settings/org.eclipse.core.resources.prefs
+src/com/__init__.py
+src/com/__pycache__/__init__.cpython-37.pyc
+src/com/dt/__init__.py
+src/com/dt/__pycache__/__init__.cpython-37.pyc
+src/com/dt/gol/__init__.py
+src/com/dt/gol/__pycache__/__init__.cpython-37.pyc
+src/com/dt/gol/__pycache__/model.cpython-37.pyc
+src/com/dt/util/__init__.py
